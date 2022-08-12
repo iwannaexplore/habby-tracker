@@ -1,5 +1,5 @@
 const GLOBAL_CONSTS = {
-  appName: "MyApp",
+  appName: "HabitTracker",
   dimas: "asd"
 }
 
