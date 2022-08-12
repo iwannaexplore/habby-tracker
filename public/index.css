@@ -1,7 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Lobster&family=Poppins:wght@400&family=Noto+Sans+SC&display=swap');
 
 :root {
- --table-border: #e7e7e7;
+ --color-one: rgba(255, 0, 0, 0.2);
+ --color-two: rgba(0,255, 0, 0.2);
+ --color-three: rgba(0, 0, 255, 0.2);
+ --color-four: rgba(155, 0, 255, 0.2);
+ --color-five: rgba(0, 155, 255, 0.2);
+ --color-six: rgba(155, 155, 255, 0.2);
+ --color-seven:  rgba(255, 155, 0, 0.2);
+ --color-eight:  rgba(255, 0, 155, 0.2);
+ --color-nine:  rgba(255, 155, 155, 0.2);
+ --color-ten:  rgba(155, 255, 155, 0.2);
+
+
+ --table-border: #eaeaea;
  --grey-default: hsl(0deg 0% 41%);
  --grey-default-hover: hsl(0deg 0% 21%);
  --black-default: #3f3e3e;
@@ -239,14 +251,16 @@ code {
  flex-direction: column;
  align-items: center;
  font-family: var(--content-font);
- margin-top: 2rem;
+ margin-top: 4rem;
 }
 
 .month__roll {
  color: var(--black-default);
  align-items: center;
  display: flex;
+ margin-bottom: 1rem;
 }
+
 
 .month__roll p:hover {
  color: var(--green-default-hover);
@@ -269,6 +283,7 @@ code {
  border-collapse: collapse;
  border: 1px solid var(--table-border);
 }
+
 .calendar__container table {
  border: 0 solid red;
 }
@@ -280,34 +295,99 @@ code {
 tr {
  text-align: center;
 }
-.without__border{
+
+.center__flex__content {
  display: flex;
  justify-content: center;
  align-items: center;
+}
+
+.without__border {
+ border: none;
+}
+
+.habits__col__name_label {
+ font-size: 1.2em;
  min-width: 150px;
  width: 100%;
 }
-td:has(.without__border) {
- border: none;
-}
+
 .habits__col__name {
  padding: 5px;
  text-align: start;
 }
 
-.weekDayName {
+.goal__col__label {
+ font-size: 1.2em;
+ min-width: 50px;
+ width: 100%;
+}
+
+.archive__col__label {
+ font-size: 1.2em;
+ min-width: 70px;
+ width: 100%;
+}
+
+.weekdays__labels {
  font-family: var(--content-font);
  color: var(--grey-default);
  font-weight: 500;
  font-size: 0.8rem;
- display: flex;
- justify-content: center;
- align-items: center;
- height: 22px;
- line-height: 20px;
+ height: 25px;
+ line-height: 25px;
  min-width: 20px;
  width: 100%;
 }
-/*Todo Change width of Habits and Goal with Archive*/
+
+.month__day {
+ min-height: 50px;
+}
+
+.default__cell {
+ font-size: 0.8em;
+ width: 100%;
+ color: black;
+ min-height: 35px;
+}
+
+.cell-color-one {
+ background-color: var(--color-one);
+}
+
+.cell-color-two {
+ background-color: var(--color-two);
+}
+
+.cell-color-three {
+ background-color: var(--color-three);
+}
+
+.cell-color-four {
+ background-color: var(--color-four);
+}
+
+.cell-color-five {
+ background-color: var(--color-five);
+}
+.cell-color-six {
+ background-color: var(--color-six);
+}
+.cell-color-seven {
+ background-color: var(--color-seven);
+}
+
+.cell-color-eight {
+ background-color: var(--color-eight);
+}
+
+.cell-color-nine {
+ background-color: var(--color-nine);
+}
+
+.cell-color-ten {
+ background-color: var(--color-ten);
+}
+
 /*Change height of Eatpussy and Suck balls*/
 /*Generate rows dynamically with special class for every column and row, to add ability to hover them*/
