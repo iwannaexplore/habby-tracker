@@ -2,17 +2,18 @@
 
 :root {
  --color-one: rgba(255, 0, 0, 0.2);
- --color-two: rgba(0,255, 0, 0.2);
+ --color-two: rgba(0, 255, 0, 0.2);
  --color-three: rgba(0, 0, 255, 0.2);
  --color-four: rgba(155, 0, 255, 0.2);
  --color-five: rgba(0, 155, 255, 0.2);
  --color-six: rgba(155, 155, 255, 0.2);
- --color-seven:  rgba(255, 155, 0, 0.2);
- --color-eight:  rgba(255, 0, 155, 0.2);
- --color-nine:  rgba(255, 155, 155, 0.2);
- --color-ten:  rgba(155, 255, 155, 0.2);
+ --color-seven: rgba(255, 155, 0, 0.2);
+ --color-eight: rgba(255, 0, 155, 0.2);
+ --color-nine: rgba(255, 155, 155, 0.2);
+ --color-ten: rgba(155, 255, 155, 0.2);
 
-
+ --main-background:#fff;
+ --white-text:#fff;
  --table-border: #eaeaea;
  --grey-default: hsl(0deg 0% 41%);
  --grey-default-hover: hsl(0deg 0% 21%);
@@ -172,7 +173,7 @@ code {
 
 
 .popup__content {
- background-color: #fff;
+ background-color: var(--main-background);
  z-index: 5;
  max-height: 0;
  opacity: 0;
@@ -201,7 +202,7 @@ code {
 .popup__element:hover {
  cursor: pointer;
  background-color: var(--green-default);
- color: #fff;
+ color: var(--white-text);
 }
 
 
@@ -233,18 +234,10 @@ code {
  left: -0.5em;
 }
 
-/*#endregion*/
+/*#endregion ====== Header Styling ======*/
 
-/*#region RegionName*/
+/*#region ====== Calendar ======*/
 
-/*#endregion RegionName*/
-/*#region RegionName*/
-
-/*#endregion RegionName*/
-
-/*#region RegionName*/
-
-/*#endregion*/
 
 .calendar__container {
  display: flex;
@@ -284,9 +277,6 @@ code {
  border: 1px solid var(--table-border);
 }
 
-.calendar__container table {
- border: 0 solid red;
-}
 
 .whole__month__table {
  width: 100%;
@@ -347,10 +337,12 @@ tr {
 .default__cell {
  font-size: 0.8em;
  width: 100%;
- color: black;
+ color: var(--black-default);
  min-height: 35px;
+ cursor: pointer;
 }
 
+/*#region ====== Cells Colors ======*/
 .cell-color-one {
  background-color: var(--color-one);
 }
@@ -370,9 +362,11 @@ tr {
 .cell-color-five {
  background-color: var(--color-five);
 }
+
 .cell-color-six {
  background-color: var(--color-six);
 }
+
 .cell-color-seven {
  background-color: var(--color-seven);
 }
@@ -388,6 +382,14 @@ tr {
 .cell-color-ten {
  background-color: var(--color-ten);
 }
+
+/*#endregion ====== Cells Colors ======*/
+
+/*#endregion ====== Calendar ======*/
+
+/*#region RegionName*/
+
+/*#endregion RegionName*/
 
 /*Change height of Eatpussy and Suck balls*/
 /*Generate rows dynamically with special class for every column and row, to add ability to hover them*/
