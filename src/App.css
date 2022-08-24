@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Lobster&family=Poppins:wght@400&family=Noto+Sans+SC&display=swap');
+
+:root {
+ --color-one: rgba(255, 0, 0, 0.2);
+ --color-two: rgba(0, 255, 0, 0.2);
+ --color-three: rgba(0, 0, 255, 0.2);
+ --color-four: rgba(155, 0, 255, 0.2);
+ --color-five: rgba(0, 155, 255, 0.2);
+ --color-six: rgba(155, 155, 255, 0.2);
+ --color-seven: rgba(255, 155, 0, 0.2);
+ --color-eight: rgba(255, 0, 155, 0.2);
+ --color-nine: rgba(255, 155, 155, 0.2);
+ --color-ten: rgba(155, 255, 155, 0.2);
+
+ --main-background:#fff;
+ --white-text:#fff;
+ --table-border: #eaeaea;
+ --grey-default: hsl(0deg 0% 41%);
+ --grey-default-hover: hsl(0deg 0% 21%);
+ --black-default: #3f3e3e;
+ --black-default-hover: #9f9f9f;
+ --green-default-hover: #7ec26d;
+ --green-default: #27ac06;
+ --cursive-font: "Lobster", cursive;
+ --manage-font: 'Noto Sans SC', sans-serif;
+ --special-font: "Raleway", sans-serif;
+ --content-font: "Lato", sans-serif;
+ --dropdown-shadow-box: 0 2px 7px 0 rgba(34, 60, 80, 0.2);
+}
+
+
+/*#region ====== Style cleaning ======*/
+
+* {
+ padding: 0;
+ margin: 0;
+ border: 0;
+}
+
+*, *:before, *:after {
+ box-sizing: border-box;
+}
+
+:focus, :active {
+ outline: none;
+}
+
+a:focus, a:active {
+ outline: none;
+}
+
+nav, footer, header, aside {
+ display: block;
+}
+
+html, body {
+ height: 100%;
+ width: 100%;
+ line-height: 1;
+ font-size: 14px;
+}
+
+input, button, textarea {
+ font-family: inherit;
+}
+
+input::-ms-clear {
+ display: none;
+}
+
+button {
+ cursor: pointer;
+}
+
+a, a:visited {
+ text-decoration: none;
+}
+
+a:hover {
+ text-decoration: none;
+}
+
+ul, li {
+ list-style: none;
+}
+
+img {
+ vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-size: inherit;
+ font-weight: inherit;
+}
+
+body {
+ margin: 0;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+ 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+ sans-serif;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+ font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+ monospace;
+}
+
+
+/*#endregion ====== Style cleaning ======*/

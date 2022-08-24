@@ -1,6 +1,7 @@
-const GLOBAL_CONSTS = {
+const GLOBAL_CONST = {
   appName: "HabitTracker",
-  dimas: "asd"
+  dimas: "asd",
+  link:"http://localhost:3000/"
 }
 
-export  {GLOBAL_CONSTS};
+export  {GLOBAL_CONST};

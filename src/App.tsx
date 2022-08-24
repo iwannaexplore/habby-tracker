@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import {GLOBAL_CONSTS} from "./global"
-import {regular, solid} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Header from "./header/Header";
 
 function App() {
  let week = ["M", "T", "W", "T", "F", "S", "S"];
@@ -11,34 +11,7 @@ function App() {
  let emptyFields = Array.from({length: 29}, (_, i) => <FontAwesomeIcon icon={solid("check")}/>)
  return (
   <>
-   <header className={"header"}>
-    <a href="/">
-     <div className={"label"}>
-      {GLOBAL_CONSTS.appName}
-      <FontAwesomeIcon icon={regular("clock")}/>
-     </div>
-    </a>
-    <div className={"about"}>
-     <span>How it works
-      <FontAwesomeIcon icon={solid('caret-down')}/>
-     </span>
-     <ul className={"popup__content"}>
-      <li className={"popup__element"}>How to use {GLOBAL_CONSTS.appName}</li>
-      <li className={"popup__element"}>Why set goals</li>
-      <li className={"popup__element"}>When to archive a goal</li>
-     </ul>
-    </div>
-
-    <div className={"account"}>
-     <span>iwannaexplore@gmail.com      <FontAwesomeIcon icon={solid('caret-down')}/>
-</span>
-     <ul className={"popup__content"}>
-      <li className={"popup__element"}>Settings</li>
-      <li className={"popup__element"}>Exit</li>
-     </ul>
-    </div>
-
-   </header>
+   <Header/>
    <section className={"calendar__container"}>
     <div className={"month__roll"}>
      <FontAwesomeIcon icon={solid("angle-left")}/>

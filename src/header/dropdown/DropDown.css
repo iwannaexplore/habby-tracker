@@ -1,0 +1,86 @@
+.about {
+ font-family: var(--manage-font);
+ color: var(--grey-default);
+ margin-right: auto;
+ position: relative;
+ font-size: 0.9rem;
+}
+
+.about span {
+ cursor: pointer;
+ padding: 0.5rem 0.3rem;
+ width: 100%;
+ height: 100%;
+}
+
+.about span:hover {
+ color: var(--grey-default);
+}
+
+.about:hover .popup__content {
+ max-height: 150px;
+ opacity: 1;
+}
+
+
+.popup__content {
+ background-color: var(--main-background);
+ z-index: 5;
+ max-height: 0;
+ opacity: 0;
+ overflow: hidden;
+ transition: all 0.8s, opacity 0.5s, max-height 0.4s;
+ border-radius: 10px;
+ font-family: var(--manage-font);
+ top: 115%;
+ left: 0.5em;
+ box-shadow: var(--dropdown-shadow-box);
+ position: absolute;
+ display: flex;
+ flex-direction: column;
+ min-width: max-content;
+ font-size: 1rem;
+ padding: 0.5em 0;
+}
+
+.popup__element {
+ font-weight: 500;
+ padding: 0 0.8em;
+ line-height: 2em;
+ min-height: 2em;
+}
+
+.popup__element:hover {
+ cursor: pointer;
+ background-color: var(--green-default);
+ color: var(--white-text);
+}
+
+
+.account {
+ font-family: var(--manage-font);
+ position: relative;
+ color: var(--grey-default);
+}
+
+.account span {
+ cursor: pointer;
+ padding: 0.5rem 0.3rem;
+ width: 100%;
+ height: 100%;
+}
+
+.account span:hover {
+ color: var(--grey-default-hover);
+}
+
+.account:hover .popup__content {
+ max-height: 100px;
+ opacity: 1;
+}
+
+
+.account .popup__content {
+ width: 100%;
+ left: -0.5em;
+}
