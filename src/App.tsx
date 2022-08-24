@@ -75,7 +75,6 @@ function App() {
     </table>
    </section>
    <footer>
-    work hard
    </footer>
   </>
  );
