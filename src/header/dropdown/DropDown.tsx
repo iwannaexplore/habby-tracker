@@ -1,4 +1,5 @@
 import React from 'react';
+import './DropDown.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
 import PopupContent from "./PopupContent";

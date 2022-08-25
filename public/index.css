@@ -45,6 +45,8 @@
 .calendar__container table, td {
  color: var(--black-default);
  border-collapse: collapse;
+}
+.calendar__container td {
  border: 1px solid var(--table-border);
 }
 
@@ -64,7 +66,7 @@ tr {
 }
 
 .without__border {
- border: none;
+ border: none !important;
 }
 
 .habits__col__name_label {
