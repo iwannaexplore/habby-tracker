@@ -1,11 +1,11 @@
 import React from 'react';
 
-const WeekdayName = ({dayName}: { dayName: string }) => {
- //Todo Add border changing
- let firstLetter = dayName.charAt(0)
+const WeekdayName = ({dayName, isMustBeHighlighted}: { dayName: string, isMustBeHighlighted: boolean }) => {
+ let borderClass = isMustBeHighlighted ? "highlightedCell" : "";
+ let firstLetter = dayName.charAt(0);
  return (
-  <td>
-   <div className={"weekdays__labels center__flex__content"}>{firstLetter.toUpperCase()}</div>
+  <td className={borderClass}>
+   <div className={`weekdays__labels center__flex__content`}>{firstLetter.toUpperCase()}</div>
   </td>
  );
 };

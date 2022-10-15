@@ -1,10 +1,10 @@
 import React from 'react';
 
-const DayNumber = ({number}:{number:number}) => {
- //Todo add border changing
+const DayNumber = ({number, isMustBeHighlighted}:{number:number, isMustBeHighlighted:boolean}) => {
+ let borderClass = isMustBeHighlighted?"highlightedCell":"";
  return (
-  <td>
-   <div className={"month__day center__flex__content"}>{number}</div>
+  <td className={borderClass}>
+   <div className={`month__day center__flex__content`}>{number}</div>
   </td>
  );
 };

@@ -2,15 +2,19 @@ import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
 
-const DayProgress = ({isCompleted}: { isCompleted: boolean }) => {
-//Todo get colors from database
- //Todo add border changing
+const DayProgress = ({isCompleted, isMustBeHighlighted}:
+                      { isCompleted: boolean, isMustBeHighlighted: boolean }) => {
  let color = "cell-color-one";
+ let borderClass = isMustBeHighlighted ? "highlightedBorder" : "";
  return (
-  <td>
-   <div className={`default__cell center__flex__content ${color}`}>
-    {isCompleted ? <FontAwesomeIcon icon={solid("check")}/> : ""}
-   </div>
+  <td className={borderClass}>
+   {isCompleted ?
+    <div className={`default__cell center__flex__content ${color}`}>
+     <FontAwesomeIcon icon={solid("check")}/>
+    </div> :
+    <div className={`default__cell center__flex__content`}>
+    </div>
+   }
   </td>
  );
 };

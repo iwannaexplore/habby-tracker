@@ -53,7 +53,7 @@
 .popup__element:hover {
  cursor: pointer;
  background-color: var(--green-default);
- color: var(--white-text);
+ color: var(--white-default);
 }
 
 
