@@ -4,6 +4,6 @@ namespace hobby_tracker_web_api.ViewModel;
 
 public class MonthViewModel
 {
-    public List<Habit> Habits { get; set; }
-    public string Name { get; set; }
+  public List<Habit> Habits { get; set; }
+  public string Name { get; set; }
 }

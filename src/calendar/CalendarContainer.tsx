@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import MonthRoll from "./MonthRoll";
 import "./Calendar.css";
 import MonthTable from "./MonthTable";
+import HabitContext from "../context/HabitContext";
 
 const CalendarContainer = () => {
-
- let date = new Date(2022, 8, 10);
+ const context = useContext(HabitContext)
  return (
   <section className={"calendar__container"}>
-   <MonthRoll date={date}/>
-   <MonthTable date={date}/>
+   <MonthRoll date={context.selectedMonth}/>
+   <MonthTable date={context.selectedMonth} habits={context.habits}/>
   </section>
  );
 };

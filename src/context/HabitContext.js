@@ -2,19 +2,22 @@ import React, {useEffect, useState} from "react";
 
 
 const HabitContext = React.createContext({
- completedDays: [],
- selectedMonth: Date
+ habits: [],
+ selectedMonth: new Date(),
+ onChangeSelectedMonth: (e) => {
+ }
 });
 
 export const HabitContextProvider = (props) => {
- let [days, setDays] = useState([]);
- let [selectedDay, setSelectedDay] = useState(new Date());
+ const [selectedDay, setSelectedDay] = useState(new Date());
+ const [habits, setHabits] = useState([]);
 
  useEffect(() => {
   fetch(`https://localhost:7027/Hobby?year=${selectedDay.getFullYear()}&month=${selectedDay.getMonth() + 1}`)
-   .then(e => e.json()).then(r => {
-   console.log(r);
-    setDays(r)});
+   .then(e => e.json()).then(result => {
+   setHabits(result.habits);
+   console.log(result.habits);
+  });
  }, [selectedDay])
 
  const changeSelectedMonth = (date) => {
@@ -25,7 +28,8 @@ export const HabitContextProvider = (props) => {
  return (
   <HabitContext.Provider value={(
    {
-    days: days,
+    habits: habits,
+    selectedMonth: selectedDay,
     onChangeSelectedMonth: changeSelectedMonth,
    })}>{props.children}</HabitContext.Provider>
  );

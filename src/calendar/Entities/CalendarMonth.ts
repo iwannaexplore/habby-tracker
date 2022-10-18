@@ -1,5 +1,4 @@
 import CalendarDay from "./CalendarDay";
-import {useContext} from "react";
 
 class CalendarMonth {
 
@@ -27,7 +26,7 @@ class CalendarMonth {
    let dateWithCurrentDayNumber = new Date(date.getFullYear(), date.getMonth(), i);
    let mustBeHighlighted = this.checkIfDayMustBeHighlighted(dateWithCurrentDayNumber);
    let calendarDay = new CalendarDay(this.daysOfWeek[dateWithCurrentDayNumber.getDay()],
-    i, mustBeHighlighted, false);
+    i, mustBeHighlighted);
    this.calendarDays.push(calendarDay);
   }
  }

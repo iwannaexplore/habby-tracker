@@ -1,14 +1,25 @@
 import React from 'react';
 import DayProgress from "./DayProgress";
-import CalendarDay from "../Entities/CalendarDay";
+import CalendarMonth from "../Entities/CalendarMonth";
 
-const Habit = ({name,calendarDays}: { name: string, calendarDays:CalendarDay[] }) => {
- let goal = 20;
- let archived = 15;
+const Habit = ({name,date, completedDays, goal}:
+                { name: string, date:Date, completedDays: any[], goal: number }) => {
+ let allDaysForThisMonth = new CalendarMonth(date);
+ let archived = completedDays.length;
+ for (const completedDay of completedDays) {
+  for (const calendarDay of allDaysForThisMonth.calendarDays) {
+   if (calendarDay.dayNumber === new Date(completedDay.date).getDay()) {
+    calendarDay.isCompleted = true;
+   }
+  }
+ }
  return (
   <tr>
    <td className={"habits__col__name"}>{name}</td>
-   {calendarDays.map((day) => <DayProgress isCompleted={day.isCompleted} isMustBeHighlighted={day.isMustBeHighlighted} /> )}
+   {allDaysForThisMonth.calendarDays.map((day) => {
+    return <DayProgress key={day.dayNumber} isCompleted={day.isCompleted}
+                        isMustBeHighlighted={day.isMustBeHighlighted}/>
+   })}
    <td>{goal}</td>
    <td>{archived}</td>
   </tr>

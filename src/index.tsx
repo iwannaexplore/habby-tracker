@@ -12,7 +12,6 @@ root.render(
   <HabitContextProvider>
    <App/>
   </HabitContextProvider>
-
  </React.StrictMode>
 );
 

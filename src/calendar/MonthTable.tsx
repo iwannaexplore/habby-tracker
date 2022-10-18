@@ -5,19 +5,19 @@ import Habit from "./MonthTableElements/Habit";
 import CalendarMonth from "./Entities/CalendarMonth";
 
 
-const MonthTable = ({date}: { date: Date }) => {
- date = date != null ? date : new Date();
+const MonthTable = ({date, habits}: { date: Date, habits: any[] }) => {
 
- let calendarMonth = new CalendarMonth(date);
-
+ let tableHeaderDays = new CalendarMonth(date);
 
  return (
   <table className={"whole__month__table"}>
+   <thead>
    <tr className={"day__names"}>
     <td rowSpan={2} className={"without__border"}>
      <div className={"habits__col__name_label center__flex__content"}>Habits</div>
     </td>
-    {calendarMonth.calendarDays.map((calendarDay) => <WeekdayName dayName={calendarDay.dayName}
+    {tableHeaderDays.calendarDays.map((calendarDay) => <WeekdayName key={calendarDay.dayNumber}
+                                                                  dayName={calendarDay.dayName}
                                                                   isMustBeHighlighted={calendarDay.isMustBeHighlighted}/>)}
     <td rowSpan={2} className={"without__border"}>
      <div className={"goal__col__label center__flex__content"}>Goal</div>
@@ -27,12 +27,16 @@ const MonthTable = ({date}: { date: Date }) => {
     </td>
    </tr>
    <tr className={"day__number"}>
-    {calendarMonth.calendarDays.map((calendarDay) => <DayNumber number={calendarDay.dayNumber}
+    {tableHeaderDays.calendarDays.map((calendarDay) => <DayNumber key={calendarDay.dayNumber}
+                                                                number={calendarDay.dayNumber}
                                                                 isMustBeHighlighted={calendarDay.isMustBeHighlighted}/>)}
    </tr>
-   <Habit name={"Work hard"} calendarDays={calendarMonth.calendarDays}/>
-   <Habit name={"Work hard"} calendarDays={calendarMonth.calendarDays}/>
-   <Habit name={"Work hard"} calendarDays={calendarMonth.calendarDays}/>
+   </thead>
+   <tbody>
+   {habits.map(h => <Habit key={h.id} date={date} name={h.name} completedDays={h.days}
+                           goal={h.goal}/>)}
+   </tbody>
+
   </table>
  );
 };
