@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import {HabitContextProvider} from "./context/HabitContext.js";
+import {HabitContextProvider} from "./1.context/habitContext.js";
 
 const root = ReactDOM.createRoot(
  document.getElementById('root') as HTMLElement

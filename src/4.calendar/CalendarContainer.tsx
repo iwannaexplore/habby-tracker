@@ -2,10 +2,11 @@ import React, {useContext} from 'react';
 import MonthRoll from "./MonthRoll";
 import "./Calendar.css";
 import MonthTable from "./MonthTable";
-import HabitContext from "../context/HabitContext";
+import habitContext from "../1.context/habitContext";
 
 const CalendarContainer = () => {
- const context = useContext(HabitContext)
+ const context = useContext(habitContext);
+ console.log(context.habits[0]);
  return (
   <section className={"calendar__container"}>
    <MonthRoll date={context.selectedMonth}/>

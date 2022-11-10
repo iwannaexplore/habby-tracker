@@ -33,6 +33,12 @@
  cursor: pointer;
 }
 
+.icon{
+ text-decoration: none;
+ color: inherit;
+}
+
+
 .calendar__container table, td {
  border-collapse: collapse;
  color: var(--black-default);

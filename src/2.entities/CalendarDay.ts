@@ -1,12 +1,12 @@
 class CalendarDay {
- constructor(dayName: string, dayNumber: number, isMustBeHighlighted: boolean) {
+ constructor(dayName: string, date: Date, isMustBeHighlighted: boolean) {
   this.dayName = dayName;
-  this.dayNumber = dayNumber;
+  this.date = date;
   this.isMustBeHighlighted = isMustBeHighlighted;
  }
 
  isMustBeHighlighted: boolean;
- dayNumber: number;
+ date: Date;
  dayName: string;
  isCompleted = false;
 }

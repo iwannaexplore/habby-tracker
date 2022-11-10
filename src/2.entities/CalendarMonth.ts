@@ -25,15 +25,15 @@ class CalendarMonth {
   for (let i = 1; i <= this.daysAmount; i++) {
    let dateWithCurrentDayNumber = new Date(date.getFullYear(), date.getMonth(), i);
    let mustBeHighlighted = this.checkIfDayMustBeHighlighted(dateWithCurrentDayNumber);
-   let calendarDay = new CalendarDay(this.daysOfWeek[dateWithCurrentDayNumber.getDay()],
-    i, mustBeHighlighted);
+   let calendarDay = new CalendarDay(this.daysOfWeek[dateWithCurrentDayNumber.getUTCDay()],
+    dateWithCurrentDayNumber, mustBeHighlighted);
    this.calendarDays.push(calendarDay);
   }
  }
 
  getDaysInMonth(date: Date) {
   let year = date.getFullYear();
-  let month = date.getMonth();
+  let month = date.getMonth() + 1;
   return new Date(year, month, 0).getDate();
  }
 

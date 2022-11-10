@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import WeekdayName from "./MonthTableElements/WeekdayName";
 import DayNumber from "./MonthTableElements/DayNumber";
-import Habit from "./MonthTableElements/Habit";
-import CalendarMonth from "./Entities/CalendarMonth";
+import HabitDays from "./MonthTableElements/HabitDays";
+import CalendarMonth from "../2.entities/CalendarMonth";
 
 
 const MonthTable = ({date, habits}: { date: Date, habits: any[] }) => {
-
  let tableHeaderDays = new CalendarMonth(date);
-
  return (
   <table className={"whole__month__table"}>
    <thead>
@@ -16,7 +14,7 @@ const MonthTable = ({date, habits}: { date: Date, habits: any[] }) => {
     <td rowSpan={2} className={"without__border"}>
      <div className={"habits__col__name_label center__flex__content"}>Habits</div>
     </td>
-    {tableHeaderDays.calendarDays.map((calendarDay) => <WeekdayName key={calendarDay.dayNumber}
+    {tableHeaderDays.calendarDays.map((calendarDay) => <WeekdayName key={calendarDay.date.getDate()}
                                                                   dayName={calendarDay.dayName}
                                                                   isMustBeHighlighted={calendarDay.isMustBeHighlighted}/>)}
     <td rowSpan={2} className={"without__border"}>
@@ -27,14 +25,13 @@ const MonthTable = ({date, habits}: { date: Date, habits: any[] }) => {
     </td>
    </tr>
    <tr className={"day__number"}>
-    {tableHeaderDays.calendarDays.map((calendarDay) => <DayNumber key={calendarDay.dayNumber}
-                                                                number={calendarDay.dayNumber}
+    {tableHeaderDays.calendarDays.map((calendarDay) => <DayNumber key={calendarDay.date.getDate()}
+                                                                number={calendarDay.date.getDate()}
                                                                 isMustBeHighlighted={calendarDay.isMustBeHighlighted}/>)}
    </tr>
    </thead>
    <tbody>
-   {habits.map(h => <Habit key={h.id} date={date} name={h.name} completedDays={h.days}
-                           goal={h.goal}/>)}
+   {habits.map(h => <HabitDays key={h.id} habit={h} date={date}/>)}
    </tbody>
 
   </table>

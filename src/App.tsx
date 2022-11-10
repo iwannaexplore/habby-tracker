@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import Header from "./header/Header";
-import CalendarContainer from "./calendar/CalendarContainer";
+import Header from "./3.header/Header";
+import CalendarContainer from "./4.calendar/CalendarContainer";
 
 function App() {
 
