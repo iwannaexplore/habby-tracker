@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Habit from "../2.entities/Habit";
 import habit from "../2.entities/Habit";
+import Day from "../2.entities/Day";
 
 const appUrl = "https://localhost:7027";
 
@@ -35,7 +36,11 @@ export const HabitContextProvider = (props) => {
   const convertHabits = (habitsWithoutType) => {
     let resultHabits = [];
     for (const habit of habitsWithoutType) {
-      resultHabits.push(new Habit(habit.id, habit.name, habit.days, habit.goal, habit.achieved))
+      let days = [];
+      for (const day of habit.days) {
+        days.push(new Day(day.id, day.isCompleted, new Date(day.date), day.habitId));
+      }
+      resultHabits.push(new Habit(habit.id, habit.name, days, habit.goal, habit.achieved))
     }
     return resultHabits;
   }
@@ -52,7 +57,6 @@ export const HabitContextProvider = (props) => {
         'Accept': 'application/json', 'Content-Type': 'application/json'
       }, body: JSON.stringify({date: convertedDate, habitId})
     }).then(() => {
-      // setSelectedDate(date);
     });
   };
 
