@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hobby-tracker-web-api", "hobby-tracker-web-api\hobby-tracker-web-api.csproj", "{3972B940-E7A6-41B1-B161-A865ECE376FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3972B940-E7A6-41B1-B161-A865ECE376FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3972B940-E7A6-41B1-B161-A865ECE376FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3972B940-E7A6-41B1-B161-A865ECE376FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3972B940-E7A6-41B1-B161-A865ECE376FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
