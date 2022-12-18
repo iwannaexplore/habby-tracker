@@ -1,7 +1,8 @@
 using hobby_tracker_web_api.Database;
 using hobby_tracker_web_api.Database.Entities;
+using hobby_tracker_web_api.DTO;
 using hobby_tracker_web_api.Extensions;
-using hobby_tracker_web_api.ViewModel;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,7 +32,7 @@ public class HobbyController : ControllerBase
 
     monthViewModel.Name = $"{new DateTime(year, month, 1).ToMonthName()},{year}";
     return monthViewModel;
-  }
+  } 
 
   [HttpPost("ChangeStateOfDay")]
   public void ChangeStateOfDay([FromBody]ChangeStateViewModel changeStateVm)
@@ -50,6 +51,25 @@ public class HobbyController : ControllerBase
     {
       day.IsCompleted = !day.IsCompleted;
     }
+    habit.Achieved = habit.Days.Count(d => d.IsCompleted);
     Context.SaveChanges();
+  }
+  [HttpPost("DeleteHabit")]
+  public void DeleteHabit([FromBody]int habitId)
+  {
+    var habit = Context.Habits.Include(d => d.Days).FirstOrDefault(h => h.Id == habitId);
+    if(habit == null)
+      throw new Exception("Unknown habit Id");
+    Context.RemoveRange(habit.Days);
+    Context.Remove(habit);
+    Context.SaveChanges();
+  }
+  [HttpPost("AddNewHabit")]
+  public Habit AddNewHabit([FromBody]NewHabitDto habitDto)
+  {
+    var newHabit = new Habit(){Name = habitDto.Name, Goal = habitDto.Goal};
+    Context.Add(newHabit);
+    Context.SaveChanges();
+    return newHabit;
   }
 }

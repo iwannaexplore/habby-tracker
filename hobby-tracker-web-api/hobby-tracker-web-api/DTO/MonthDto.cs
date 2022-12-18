@@ -1,6 +1,6 @@
 using hobby_tracker_web_api.Database.Entities;
 
-namespace hobby_tracker_web_api.ViewModel;
+namespace hobby_tracker_web_api.DTO;
 
 public class MonthViewModel
 {
