@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import MonthRoll from "./MonthRoll";
+import MonthTopRoll from "./MonthTopRoll";
 import "./Calendar.css";
 import MonthTable from "./MonthTable";
 import habitContext from "../1.context/habitContext";
@@ -9,7 +9,7 @@ const CalendarContainer = () => {
  console.log(context.habits[0]);
  return (
   <section className={"calendar__container"}>
-   <MonthRoll date={context.selectedMonth}/>
+   <MonthTopRoll date={context.selectedMonth}/>
    <MonthTable date={context.selectedMonth} habits={context.habits}/>
   </section>
  );

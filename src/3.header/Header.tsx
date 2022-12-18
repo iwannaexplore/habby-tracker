@@ -1,6 +1,5 @@
 import React from 'react';
 import {GLOBAL_CONST} from "../global";
-import './Header.css';
 import Label from "./Label";
 import DropDown from "./dropdown/DropDown";
 

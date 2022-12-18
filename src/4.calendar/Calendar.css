@@ -113,12 +113,13 @@ tr {
 
 .habits__col__name_label {
  font-size: 1.2em;
- min-width: 150px;
+ min-width: 100px;
  width: 100%;
 }
 
 .habits__col__name {
- padding: 5px;
+ min-width: min-content;
+ max-width: 100px;
  text-align: start;
 }
 
@@ -199,5 +200,43 @@ tr {
 }
 
 /*#endregion ====== Cells Colors ======*/
+
+/*#region ====== Habit Actions  ======*/
+.habit-actions{
+ height: 35px;
+ display: none;
+ align-items: center;
+ justify-content: space-evenly;
+}
+.habit-actions span{
+ cursor: pointer;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.anticon{
+ padding: 9px 9px;
+ font-style: normal;
+ line-height: 0;
+ text-align: center;
+ text-transform: none;
+ vertical-align: -0.125em;
+ text-rendering: optimizeLegibility;
+ -webkit-font-smoothing: antialiased;
+}
+.habit-name{
+ padding: 7px;
+}
+.habits__col__name:hover .habit-name{
+ display: none;
+}
+.habits__col__name:hover .habit-actions{
+ display: flex;
+}
+.anticon:hover svg{
+ color: #62be4a;
+}
+/*#endregion ====== Habit Actions ======*/
+
 
 /*#endregion ====== Calendar ======*/

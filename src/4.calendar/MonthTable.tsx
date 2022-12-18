@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import WeekdayName from "./MonthTableElements/WeekdayName";
 import DayNumber from "./MonthTableElements/DayNumber";
-import HabitDays from "./MonthTableElements/HabitDays";
+import HabitContainer from "./MonthTableElements/HabitContainer";
 import CalendarMonth from "../2.entities/CalendarMonth";
 
 
@@ -31,7 +31,7 @@ const MonthTable = ({date, habits}: { date: Date, habits: any[] }) => {
    </tr>
    </thead>
    <tbody>
-   {habits.map(h => <HabitDays key={h.id} habit={h} date={date}/>)}
+   {habits.map(h => <HabitContainer key={h.id} habit={h} date={date}/>)}
    </tbody>
 
   </table>
