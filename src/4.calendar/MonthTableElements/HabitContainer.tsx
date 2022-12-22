@@ -42,7 +42,7 @@ const HabitContainer = ({habit, date}:
       <tr>
         <td className={"habits__col__name"}>
           <span className={"habit-name"}>{currentHabit.name}</span>
-          <HabitActions habitId={currentHabit.id}/>
+          <HabitActions habit={currentHabit}/>
         </td>
 
         {allDaysForThisMonth.calendarDays.map((day) => {

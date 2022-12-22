@@ -72,4 +72,15 @@ public class HobbyController : ControllerBase
     Context.SaveChanges();
     return newHabit;
   }
+  [HttpPost("ChangeHabit")]
+  public void ChangeHabit([FromBody]NewHabitDto habitDto)
+  {
+    var habit = Context.Habits.FirstOrDefault(h => h.Id == habitDto.Id);
+    if (habit == null)
+      return;
+    habit.Name = habitDto.Name;
+    habit.Goal = habitDto.Goal;
+    Context.Update(habit);
+    Context.SaveChanges();
+  }
 }

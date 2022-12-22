@@ -12,7 +12,7 @@ const convertDateToCSharpFormat = (date) => {
   convertedDate.setDate(date.getDate() + 1);
   return convertedDate;
 }
-const convertHabit=(habit)=>{
+const convertHabit = (habit) => {
   let days = [];
   for (const day of habit.days) {
     days.push(new Day(day.id, day.isCompleted, new Date(day.date), day.habitId));
@@ -23,7 +23,6 @@ const convertHabits = (habitsWithoutType) => {
   let resultHabits = [];
   for (const habit of habitsWithoutType) {
     resultHabits.push(convertHabit(habit))
-
   }
   return resultHabits;
 }
@@ -32,7 +31,11 @@ const convertHabits = (habitsWithoutType) => {
 const habitContext = React.createContext({
   habits: [], selectedMonth: new Date(), onChangeSelectedMonth: (e) => {
   }, onChangeStateOfDay: (date, habitId, isCompleted) => {
-  }, onDeleteHabit:(habitId)=>{}, onAddNewHabit:(name, goal)=>{}
+  }, onDeleteHabit: (habitId) => {
+  }, onAddNewHabit: (name, goal) => {
+  },
+  onChangeHabit: (habit) => {
+  }
 });
 
 export const HabitContextProvider = (props) => {
@@ -62,28 +65,38 @@ export const HabitContextProvider = (props) => {
     });
   };
 
-  const deleteHabit=(habitId)=>{
+  const deleteHabit = (habitId) => {
     fetch(appUrl + "/Hobby/DeleteHabit", {
       method: "Post", headers: {
         'Accept': 'application/json', 'Content-Type': 'application/json'
-      }, body: JSON.stringify( habitId)
+      }, body: JSON.stringify(habitId)
     }).then(() => {
     });
-    setHabits((prevState)=>prevState.filter(elem=>elem.id!=habitId))
+    setHabits((prevState) => prevState.filter(elem => elem.id != habitId))
   }
-  const addNewHabit=(name, goal)=>{
+  const addNewHabit = (habit) => {
     fetch(appUrl + "/Hobby/AddNewHabit", {
       method: "Post", headers: {
         'Accept': 'application/json', 'Content-Type': 'application/json'
-      }, body: JSON.stringify({name:name,goal:goal})
-    }).then((habitJson) => {return habitJson.json()
-    }).then(habit=>{
-      debugger;
+      }, body: JSON.stringify({name: habit.name, goal: habit.goal})
+    }).then((habitJson) => {
+      return habitJson.json()
+    }).then(habit => {
         let convertedHabit = convertHabit(habit);
-       setHabits(prevState=>[...prevState, convertedHabit])
-    }
+        setHabits(prevState => [...prevState, convertedHabit])
+      }
     );
   }
+  const changeHabit = (habit) => {
+    fetch(appUrl + "/Hobby/ChangeHabit", {
+      method: "Post", headers: {
+        'Accept': 'application/json', 'Content-Type': 'application/json'
+      }, body: JSON.stringify({id: habit.id, name: habit.name, goal: habit.goal})
+    }).then(() => setHabits(prev => prev.map(elem =>
+      elem.id === habit.id ? {...elem, name: habit.name, goal: habit.goal} : elem
+    )));
+  };
+
 
   return (<habitContext.Provider
     value={{
@@ -93,6 +106,7 @@ export const HabitContextProvider = (props) => {
       onChangeStateOfDay: changeStateOfDay,
       onDeleteHabit: deleteHabit,
       onAddNewHabit: addNewHabit,
+      onChangeHabit: changeHabit,
     }}
   >
     {props.children}

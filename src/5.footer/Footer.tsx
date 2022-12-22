@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import habitContext from "../1.context/habitContext";
+import PopupContext from "../1.context/popupContext";
 
 const Footer = () => {
-  const context = useContext(habitContext);
+  const context = useContext(PopupContext);
   const addNewHabitHandler=()=>{
-    context.onAddNewHabit("Dima", 12);
+    context.onChangePopupVisibility(null, true);
   }
   return (
     <div className="footer">

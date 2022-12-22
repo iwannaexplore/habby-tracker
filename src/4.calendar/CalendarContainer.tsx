@@ -6,7 +6,6 @@ import habitContext from "../1.context/habitContext";
 
 const CalendarContainer = () => {
  const context = useContext(habitContext);
- console.log(context.habits[0]);
  return (
   <section className={"calendar__container"}>
    <MonthTopRoll date={context.selectedMonth}/>

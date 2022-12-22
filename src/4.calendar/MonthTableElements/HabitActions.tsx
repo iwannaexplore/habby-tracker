@@ -1,15 +1,18 @@
 import React, {useContext} from 'react';
 import habitContext from "../../1.context/habitContext";
+import popupContext from "../../1.context/popupContext";
+import Habit from "../../2.entities/Habit";
 
-const HabitActions = ({habitId}:{habitId: number}) => {
-  let context = useContext(habitContext);
+const HabitActions = ({habit}:{habit: Habit}) => {
+  let hContext = useContext(habitContext);
+  let pContext = useContext(popupContext);
 
   const editHandler = function () {
-    //Todo Add edit handler
+    pContext.onChangePopupVisibility(habit,true)
   }
 
   const deleteHandler = function () {
-    context.onDeleteHabit(habitId);
+    hContext.onDeleteHabit(habit.id);
   }
 
   return (
@@ -26,7 +29,7 @@ const HabitActions = ({habitId}:{habitId: number}) => {
             </path>
           </svg>
         </span>*/}
-      <span className="anticon">
+      <span className="anticon" onClick={editHandler}>
           <svg
             className="svg-sm-icon" width="20" height="20"
             viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

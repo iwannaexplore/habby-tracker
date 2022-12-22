@@ -12,8 +12,8 @@
  --color-nine: rgba(255, 155, 155, 0.2);
  --color-ten: rgba(155, 255, 155, 0.2);
 
- --main-background:#fff;
- --white-default:#fff;
+ --main-background: #fff;
+ --white-default: #fff;
  --table-border: #eaeaea;
  --grey-default: hsl(0deg 0% 41%);
  --grey-default-hover: hsl(0deg 0% 21%);
@@ -56,6 +56,7 @@ nav, footer, header, aside {
 html, body {
  height: 100%;
  width: 100%;
+ overflow: hidden;
  line-height: 1;
  font-size: 14px;
 }
@@ -146,17 +147,115 @@ code {
 
 
 /*#region ====== Footer Styling ======*/
-.footer{
-margin-top: 20px;
+.footer {
+ margin-top: 20px;
 }
-.new-habit{
-color: var(--black-default);
+
+.new-habit {
+ color: var(--black-default);
  padding: 7px 15px;
  border: 1px solid #c7c7c7;
  transition: 0.3s;
-background-color: var(--white-default);
+ background-color: var(--white-default);
 }
-.new-habit:hover{
+
+.new-habit:hover {
  border-color: var(--black-default);
 }
+
 /*#endregion ====== Footer Styling ======*/
+
+
+/*#region ====== Popup Styling ======*/
+.popup__background{
+ background-color: rgba(0, 0, 0, 0.2);
+ width: 100vw;
+ height: 100vh;
+ z-index: 0;
+ top: 0;
+ position: absolute;
+}
+.popup__container {
+ overflow: hidden;
+ border-radius:15px;
+ background-color: var(--white-default);
+ position: absolute;
+ top: 30%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ display: flex;
+ flex-direction: column;
+ color: var(--black-default);
+ box-shadow: 0px 8px 23px 5px rgba(173, 173, 173, 0.65);
+ width: 450px;
+}
+
+.popup__header {
+ display: flex;
+ flex-direction: row;
+ background-color: var(--white-default);
+ justify-content: space-between;
+ padding: 15px 8px;
+ font-size: 1.1em;
+ margin-bottom: 15px;
+}
+
+.popup__title {
+ padding-left: 14px;
+}
+
+.popup__mark {
+
+}
+
+.popup-body {
+ display: flex;
+ flex-direction: column;
+ padding: 0 20px;
+}
+
+.popup__input__container {
+ margin-bottom: 20px;
+ display: flex;
+ flex-direction: column;
+}
+
+.popup__label {
+ font-size: 0.95em;
+ padding-left: 5px;
+ padding-bottom: 10px;
+}
+
+.popup__input {
+ border: 1px solid var(--table-border);
+ padding: 7px 11px;
+ line-height: 1;
+ border-radius: 10px;
+ font-size: 1.05em;
+ transition: 0.3s;
+
+}
+
+.popup__input:focus {
+ border: 1px solid var(--green-default-hover);
+}
+
+.popup__button {
+ background-color: var(--black-default);
+ font-size: 1.1em;
+ padding: 13px 20px;
+ color: var(--white-default);
+ margin: 10px 0 20px 20px;
+ transition: 0.3s;
+ border-radius: 5px;
+
+}
+
+.popup__button:hover {
+ border-radius: 0;
+
+ background-color: var(--black-default-hover);
+}
+
+
+/*#endregion ====== Popup Styling ======*/
