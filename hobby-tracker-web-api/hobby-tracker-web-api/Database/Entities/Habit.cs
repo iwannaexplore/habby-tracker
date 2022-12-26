@@ -7,4 +7,7 @@ public class Habit
   public List<Day> Days { get; set; } = new List<Day>();
   public int Goal { get; set; }
   public int Achieved { get; set; }
+  
+  public User User { get; set; }
+  public int UserId { get; set; }
 }

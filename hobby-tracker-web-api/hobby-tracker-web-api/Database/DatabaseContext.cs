@@ -8,12 +8,12 @@ public sealed class DatabaseContext : DbContext
 {
   public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
   {
-    // Database.EnsureDeleted();
     Database.EnsureCreated();
   }
 
   public DbSet<Day> Days { get; set; }
   public DbSet<Habit> Habits { get; set; }
+  public DbSet<User> Users { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
