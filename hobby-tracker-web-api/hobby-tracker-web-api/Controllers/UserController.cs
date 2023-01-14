@@ -31,12 +31,13 @@ public class UserController : ControllerBase
     var currentUser = GetCurrentUser();
     return Ok();
   }
-
+  
   private User? GetCurrentUser()
   {
     var identity = HttpContext.User.Identity as ClaimsIdentity;
     if (identity != null)
     {
+
       var userClaims = identity.Claims;
 
       return new User()
@@ -48,9 +49,9 @@ public class UserController : ControllerBase
     }
     return null;
   }
-  //ToDo Fix when change Habit name Archieved number reset to default.
-  //Todo Add colors to habits
   //Todo Add user login and logout in React
+  //Todo Add colors to habits
+  //ToDo Fix when change Habit name Archieved number reset to default.
   [AllowAnonymous]
   [HttpPost("Login")]
   public IActionResult Login([FromBody] UserLogin userLogin)

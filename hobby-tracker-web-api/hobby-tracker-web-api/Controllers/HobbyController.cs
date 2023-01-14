@@ -1,3 +1,5 @@
+using System.Security.Claims;
+
 using hobby_tracker_web_api.Database;
 using hobby_tracker_web_api.Database.Entities;
 using hobby_tracker_web_api.DTO;
@@ -67,7 +69,8 @@ public class HobbyController : ControllerBase
   [HttpPost("AddNewHabit")]
   public Habit AddNewHabit([FromBody]NewHabitDto habitDto)
   {
-    var newHabit = new Habit(){Name = habitDto.Name, Goal = habitDto.Goal};
+   //ToDo Use Real user
+    var newHabit = new Habit(){Name = habitDto.Name, Goal = habitDto.Goal, UserId = 1};
     Context.Add(newHabit);
     Context.SaveChanges();
     return newHabit;

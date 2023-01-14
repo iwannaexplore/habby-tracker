@@ -1,20 +1,25 @@
 import React, {useContext, useEffect, useState} from 'react';
 import habitContext from "../1.context/habitContext";
 import popupContext from "../1.context/popupContext";
+import Input from "../8.modules/input/Input";
+import Habit from "../2.entities/Habit";
 
 const Popup = () => {
   let hContext = useContext(habitContext);
   let pContext = useContext(popupContext);
 
   const [errorVisibility, setErrorVisibility] = useState(false)
+
   useEffect(() => {
     setHabit(pContext.targetHabit);
   }, [pContext.targetHabit]);
-  const [habit, setHabit] = useState(pContext.targetHabit);
 
+  const [habit, setHabit] = useState(pContext.targetHabit);
+  console.log(habit);
 
   const closePopup = () => {
     pContext.onChangePopupVisibility(null, false);
+    setHabit(null);
   }
 
   const changeHobbyHandler = () => {
@@ -23,7 +28,6 @@ const Popup = () => {
         let newHabit = {id:habit.id, name: habit.name, goal: habit.goal};
         hContext.onChangeHabit(newHabit);
       } else {
-        debugger
         let newHabit = { name: habit.name, goal: habit.goal};
         hContext.onAddNewHabit(newHabit);
       }
@@ -32,17 +36,18 @@ const Popup = () => {
       setErrorVisibility(true);
       return;
     }
+    setHabit(null);
     pContext.onChangePopupVisibility(null, false);
   }
-
   const onNameChangeHandler = (e) => {
     setHabit(prev=>({...prev, name:e.target.value}));
   }
   const onGoalChangeHandler = (e) => {
     setHabit(prev=>({...prev, goal:parseInt(e.target.value)}));
   }
+  if(!pContext.isPopupVisible) return null;
   return (
-    <div className="popup__background" style={{display: pContext.isPopupVisible ? "block" : "none"}}>
+    <div className="popup__background">
       <div className="popup__container">
         <div className="popup__header">
           <div className="popup__title">Create New Habit</div>
@@ -61,16 +66,10 @@ const Popup = () => {
           </div>
         </div>
         <div className="popup-body">
-          <div className="popup__input__container">
-            <label htmlFor="newHabitName" className="popup__label">Habit Name</label>
-            <input type="text" id="newHabitName" className="popup__input" onChange={onNameChangeHandler}
-                   onFocus={() => setErrorVisibility(false)} value={habit?habit.name:""}/>
-          </div>
-          <div className="popup__input__container">
-            <label htmlFor="newHabitName" className="popup__label">Goal</label>
-            <input type="number" id="newHabitGoal" className="popup__input" onChange={onGoalChangeHandler}
-                   onFocus={() => setErrorVisibility(false)} value={habit?habit.goal:""}/>
-          </div>
+          <Input value={habit?habit.name:""} label={"Habit Name"} id={habit?habit.id:""} key={"Habit Name"} type={"text"}
+                 onChangeHandler={onNameChangeHandler} onFocusHandler={setErrorVisibility}/>
+          <Input value={habit?habit.goal:""} label={"Goal"} id={habit?habit.id:""} key={"Goal"} type={"number"}
+                 onChangeHandler={onGoalChangeHandler} onFocusHandler={setErrorVisibility}/>
           {errorVisibility ? <p style={{color: "red", marginBottom:"10px"}}>Fill Goal and Habit name</p> : ""}
         </div>
         <div className="popup-bottom">

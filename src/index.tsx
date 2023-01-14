@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {HabitContextProvider} from "./1.context/habitContext.js";
 import {PopupContextProvider} from "./1.context/popupContext";
+import {BrowserRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,11 +11,13 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <HabitContextProvider>
-      <PopupContextProvider>
-        <App/>
-      </PopupContextProvider>
-    </HabitContextProvider>
+    <BrowserRouter>
+      <HabitContextProvider>
+        <PopupContextProvider>
+          <App/>
+        </PopupContextProvider>
+      </HabitContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
